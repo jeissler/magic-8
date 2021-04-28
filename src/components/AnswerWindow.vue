@@ -27,7 +27,7 @@ function drawTriangle() {
     ctx.moveTo(0, 0);
     ctx.lineTo(300, 0);
     ctx.lineTo(150, 150);
-    ctx.fillStyle = "#3f33ca";
+    ctx.fillStyle = '#3f33ca';
     ctx.fill();
   }
 }
