@@ -1,9 +1,8 @@
 <template>
   <EightBall />
   <button class="mt-10 uppercase" @click="toggleMode">
-    Click to flip
+    Click to {{ mode === 'ask' ? 'answer' : 'ask' }}
     </button>
-  {{ mode }}
 </template>
 
 <script>

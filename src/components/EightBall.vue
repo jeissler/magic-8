@@ -1,16 +1,20 @@
 <template>
   <div class="shadow-bg"></div>
   <div class="ball-bg">
-    <TopNumber
-      class="inner-bg"
-      v-if="mode === 'ask'"
-      @click="toggleMode"
-    />
-    <AnswerWindow
-      class="window-bg"
-      v-if="mode === 'answer'"
-      @click="toggleMode"
-    />
+    <transition name="slideDown">
+      <TopNumber
+        class="inner-bg"
+        v-if="mode === 'ask'"
+        @click="toggleMode"
+      />
+    </transition>
+    <transition name="slideUp">
+      <AnswerWindow
+        class="window-bg"
+        v-if="mode === 'answer'"
+        @click="toggleMode"
+      />
+    </transition>
   </div>
 </template>
 
@@ -80,5 +84,23 @@ export default {
   background: #372e9b;
   padding: 15px;
   border: 4px solid #424242;
+}
+
+/* Transitions */
+.slideDown-enter-active,
+.slideDown-leave-active,
+.slideUp-enter-active,
+.slideUp-leave-active {
+  transition: top 0.5s ease;
+}
+
+.slideDown-enter-from,
+.slideDown-leave-to {
+  top: -100%;
+}
+
+.slideUp-enter-from,
+.slideUp-leave-to {
+  top: 150%;
 }
 </style>
